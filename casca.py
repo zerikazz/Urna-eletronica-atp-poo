@@ -32,7 +32,7 @@ def get_candidato_info(candidato_number):
 # Função para tocar som
 def tocar_som():
     try:
-        pygame.mixer.music.load('urnaferrauche/teclas/bip.mp3')
+        pygame.mixer.music.load('teclas/bip.mp3')
         pygame.mixer.music.play()
         while pygame.mixer.music.get_busy() == True:
             pygame.time.Clock().tick(10)
@@ -45,7 +45,7 @@ def press_key(key):
 
     if key == 'Confirmar':
         ve_imagem()
-        pygame.mixer.music.load('urnaferrauche/teclas/confirma-urna.mp3')
+        pygame.mixer.music.load('teclas/confirma-urna.mp3')
         pygame.mixer.music.play()
     elif key.isdigit():
         input_number += key
@@ -59,7 +59,7 @@ def press_key(key):
 def ve_imagem():
     global img_label
     try:
-        img = Image.open("urnaferrauche/justica_eleitoral.png")
+        img = Image.open("justica_eleitoral.png")
         img = img.resize((int(img.width * 0.65), int(img.height * 1.3)), Image.LANCZOS)  # Redimensionamento com LANCZOS
         img = ImageTk.PhotoImage(img)
         
@@ -134,20 +134,20 @@ def teclas(image_path, size=(20, 20)):
 
 # Definindo as imagens das teclas
 nums = {
-    '1': 'urnaferrauche/teclas/n1.png',
-    '2': 'urnaferrauche/teclas/n2.png',
-    '3': 'urnaferrauche/teclas/n3.png',
-    '4': 'urnaferrauche/teclas/n4.png',
-    '5': 'urnaferrauche/teclas/n5.png',
-    '6': 'urnaferrauche/teclas/n6.png',
-    '7': 'urnaferrauche/teclas/n7.png',
-    '8': 'urnaferrauche/teclas/n8.png',
-    '9': 'urnaferrauche/teclas/n9.png',
-    '0': 'urnaferrauche/teclas/n0.png',
-    'Branco': 'urnaferrauche/teclas/bran.png',
-    'Corrigir': 'urnaferrauche/teclas/corr.png',
-    'Confirmar': 'urnaferrauche/teclas/conf.png',
-    'N': 'urnaferrauche/teclas/n.png',
+    '1': 'teclas/n1.png',
+    '2': 'teclas/n2.png',
+    '3': 'teclas/n3.png',
+    '4': 'teclas/n4.png',
+    '5': 'teclas/n5.png',
+    '6': 'teclas/n6.png',
+    '7': 'teclas/n7.png',
+    '8': 'teclas/n8.png',
+    '9': 'teclas/n9.png',
+    '0': 'teclas/n0.png',
+    'Branco': 'teclas/bran.png',
+    'Corrigir': 'teclas/corr.png',
+    'Confirmar': 'teclas/conf.png',
+    'N': 'teclas/n.png',
 }
 
 # Layout dos botões
@@ -163,7 +163,7 @@ button_images = {}
 button_size = (100, 70)  # Ajustei o tamanho dos botões
 
 # Imagem da parte superior
-top_img = teclas('urnaferrauche/teclas/top.png', size=(315, 130))
+top_img = teclas('teclas/top.png', size=(315, 130))
 top_label = tk.Label(right_frame, image=top_img, bg='black')
 top_label.image = top_img 
 top_label.grid(row=0, column=0, columnspan=3, padx=0, pady=(47, 0), sticky="ew")
@@ -173,7 +173,7 @@ for i, row in enumerate(buttons, start=1):
     for j, button in enumerate(row):
         button_widget = tk.Button(right_frame, font=('Arial', 16), bd=0)
         if button != ' ':
-            button_img = teclas(nums.get(button, 'urnaferrauche/teclas/default.png'), size=(100, 70))  # Ajustei o tamanho
+            button_img = teclas(nums.get(button, 'teclas/default.png'), size=(100, 70))  # Ajustei o tamanho
             button_images[button] = button_img
         else: 
             button_img = None
@@ -191,7 +191,7 @@ for j in range(3):
     right_frame.grid_columnconfigure(j, weight=0, minsize=30)
 
 # Imagem da tela
-image_path_tela = 'urnaferrauche/tela.png'
+image_path_tela = 'tela.png'
 desired_width_tela = 700
 desired_height_tela = 490
 tela_img = teclas(image_path_tela, size=(desired_width_tela, desired_height_tela))  # Redimensionando tela para 700x490
